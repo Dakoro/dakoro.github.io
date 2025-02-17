@@ -9,4 +9,4 @@ const navData = [
     },
   ]
   
-export default navData;
+  export default navData;
