@@ -3,6 +3,7 @@ title: "L'état à l'ére de l'intelligence artificielle"
 description: "Etude des évolutions potentielles de l'état à l'ére de l'intelligence artificielle"
 pubDate: 'Jun 19 2025'
 heroImage: '/post2_img.png'
+lang: 'fr'
 ---
 
 ### La transformation révolutionnaire du pouvoir étatique par l'IA

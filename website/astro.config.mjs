@@ -10,6 +10,13 @@ import compressor from 'astro-compressor';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://example.com',
+    i18n: {
+        defaultLocale: 'en',
+        locales: ['en', 'fr'],
+        routing: {
+            prefixDefaultLocale: false
+        }
+    },
     integrations: [mdx(), sitemap(), playformCompress({
         // if you use tailwind or postcss, your CSS is already minified
         CSS: false,

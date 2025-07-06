@@ -3,6 +3,7 @@ title: "La Grande Séparation : Comment la Division Travail-Famille du Système 
 description: "Etude de la relation travail-famille dans les sociétés industrielles"
 pubDate: 'Jun 30 2025'
 heroImage: '/post3_img.png'
+lang: 'fr'
 ---
 
 # La Grande Séparation : Comment la Division Travail-Famille du Système Industriel Alimente la Crise de Fertilité en Europe

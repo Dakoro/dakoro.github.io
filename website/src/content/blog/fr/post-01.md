@@ -3,6 +3,7 @@ title: "Rétrospective des recherches sur l'intelligence artificielle"
 description: "Historique des travaux ayant marqué le développement de l'intelligence artificielle"
 pubDate: 'Feb 24 2025'
 heroImage: '/post1_img.png'
+lang: 'fr'
 ---
 
 ### Des débuts prometteurs (1943-1956)

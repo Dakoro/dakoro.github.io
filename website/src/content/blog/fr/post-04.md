@@ -3,6 +3,7 @@ title: "Les Misérables de l'Algorithme"
 description: "Une histoire "
 pubDate: 'Jul 6 2025'
 heroImage: '/post4_img.png'
+lang: 'fr'
 ---
 
 

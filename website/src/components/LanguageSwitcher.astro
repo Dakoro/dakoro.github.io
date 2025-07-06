@@ -1,0 +1,65 @@
+---
+export interface Props {
+	currentLang: string;
+	currentPath: string;
+}
+
+const { currentLang, currentPath } = Astro.props;
+
+const getAlternateUrl = (lang: string) => {
+	if (lang === 'en') {
+		return currentPath.replace('/fr/', '/');
+	} else {
+		return currentPath.startsWith('/fr/') ? currentPath : `/fr${currentPath}`;
+	}
+};
+---
+
+<div class="language-switcher">
+	<a 
+		href={getAlternateUrl('en')} 
+		class={currentLang === 'en' ? 'active' : ''}
+		aria-label="Switch to English"
+	>
+		EN
+	</a>
+	<span class="separator">|</span>
+	<a 
+		href={getAlternateUrl('fr')} 
+		class={currentLang === 'fr' ? 'active' : ''}
+		aria-label="Passer au français"
+	>
+		FR
+	</a>
+</div>
+
+<style>
+	.language-switcher {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	.language-switcher a {
+		color: rgb(var(--gray));
+		text-decoration: none;
+		padding: 0.25rem 0.5rem;
+		border-radius: 4px;
+		transition: color 0.2s ease;
+	}
+
+	.language-switcher a:hover {
+		color: rgb(var(--accent));
+	}
+
+	.language-switcher a.active {
+		color: rgb(var(--accent));
+		font-weight: 600;
+	}
+
+	.separator {
+		color: rgb(var(--gray-light));
+	}
+</style>
