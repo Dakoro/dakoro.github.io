@@ -1,0 +1,203 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getLangFromUrl } from '@/utils/i18n';
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <BaseHead title={title} description={description} image={image} lang={lang} />
+  </head>
+  <body>
+    <div class="layout">
+      <Header />
+      <main class="main-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-primary: #3b82f6;
+    --color-primary-light: #eff6ff;
+    --color-primary-dark: #1d4ed8;
+    --color-secondary: #10b981;
+    --color-accent: #f59e0b;
+    
+    --color-text: #1f2937;
+    --color-text-light: #6b7280;
+    --color-text-muted: #9ca3af;
+    
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    
+    --color-border: #e5e7eb;
+    --color-bg: #ffffff;
+    --color-bg-secondary: #f9fafb;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-content {
+    flex: 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.125rem; }
+  h6 { font-size: 1rem; }
+
+  p {
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration-color: var(--color-primary-light);
+    transition: all 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+    text-decoration-color: var(--color-primary);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .prose {
+    max-width: 65ch;
+    line-height: 1.7;
+  }
+
+  .prose h1, .prose h2, .prose h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose ul, .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose blockquote {
+    border-left: 4px solid var(--color-primary);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--color-text-light);
+  }
+
+  .prose code {
+    background: var(--color-gray-100);
+    padding: 0.2em 0.4em;
+    border-radius: var(--radius-sm);
+    font-size: 0.875em;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .prose pre {
+    background: var(--color-gray-900);
+    color: var(--color-gray-100);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .prose pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  @media (max-width: 768px) {
+    html {
+      font-size: 14px;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.375rem; }
+
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

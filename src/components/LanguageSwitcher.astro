@@ -1,0 +1,112 @@
+---
+import { getLangFromUrl } from '../utils/i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
+
+function getAlternateUrl(targetLang: string) {
+  if (lang === 'en') {
+    return targetLang === 'fr' ? `/fr${currentPath}` : currentPath;
+  } else {
+    return targetLang === 'en' ? currentPath.replace(/^\/fr/, '') || '/' : currentPath;
+  }
+}
+---
+
+<div class="language-switcher">
+  <button class="lang-button" aria-label="Switch language">
+    <span class="flag">{lang === 'en' ? '🇺🇸' : '🇫🇷'}</span>
+    <span class="lang-code">{lang.toUpperCase()}</span>
+  </button>
+  
+  <div class="lang-dropdown">
+    <a href={getAlternateUrl('en')} class="lang-option" class:list={{ active: lang === 'en' }}>
+      <span class="flag">🇺🇸</span>
+      <span>English</span>
+    </a>
+    <a href={getAlternateUrl('fr')} class="lang-option" class:list={{ active: lang === 'fr' }}>
+      <span class="flag">🇫🇷</span>
+      <span>Français</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .language-switcher {
+    position: relative;
+  }
+
+  .lang-button {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+  }
+
+  .lang-button:hover {
+    background: var(--color-gray-50);
+    border-color: var(--color-primary);
+  }
+
+  .flag {
+    font-size: 1rem;
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.25rem;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: all 0.2s ease;
+    min-width: 120px;
+  }
+
+  .language-switcher:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    transition: background 0.2s ease;
+  }
+
+  .lang-option:hover {
+    background: var(--color-gray-50);
+  }
+
+  .lang-option.active {
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .lang-option:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .lang-option:last-child {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+</style>

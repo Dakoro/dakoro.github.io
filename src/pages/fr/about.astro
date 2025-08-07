@@ -1,0 +1,330 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="À propos - Blog IA & Apprentissage Automatique"
+  description="Découvrez notre mission de rendre l'IA et l'apprentissage automatique accessibles à tous"
+>
+  <div class="about-page">
+    <div class="container">
+      <div class="about-hero">
+        <div class="hero-content">
+          <h1 class="page-title">À propos d'AI Blog</h1>
+          <p class="page-subtitle">
+            Démocratiser les connaissances en intelligence artificielle et apprentissage automatique
+          </p>
+        </div>
+        <div class="hero-visual">
+          <div class="about-icon">
+            <svg width="180" height="180" viewBox="0 0 180 180" fill="none">
+              <defs>
+                <linearGradient id="aboutGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#3b82f6"/>
+                  <stop offset="100%" stop-color="#10b981"/>
+                </linearGradient>
+              </defs>
+              <rect x="30" y="30" width="120" height="120" rx="20" fill="url(#aboutGradient)" opacity="0.1"/>
+              <rect x="40" y="40" width="100" height="100" rx="15" fill="url(#aboutGradient)" opacity="0.2"/>
+              <rect x="50" y="50" width="80" height="80" rx="10" fill="url(#aboutGradient)" opacity="0.3"/>
+              <path d="M70 70 L110 70 L110 80 L70 80 Z M70 90 L110 90 L110 100 L70 100 Z M70 110 L90 110 L90 120 L70 120 Z" fill="url(#aboutGradient)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <section class="mission-section">
+          <h2>Notre Mission</h2>
+          <p>
+            Chez AI Blog, nous croyons que l'intelligence artificielle et l'apprentissage automatique doivent être 
+            accessibles à tous. Notre mission est de combler le fossé entre la recherche de pointe et les applications 
+            pratiques, en rendant les concepts complexes compréhensibles et exploitables pour les apprenants de tous niveaux.
+          </p>
+          <p>
+            Que vous soyez étudiant faisant vos premiers pas en IA, professionnel cherchant à améliorer ses compétences, 
+            ou chercheur en quête des dernières perspectives, nous fournissons du contenu de haute qualité qui vous permet 
+            de comprendre et d'exploiter la puissance de l'intelligence artificielle.
+          </p>
+        </section>
+
+        <section class="values-section">
+          <h2>Nos Valeurs</h2>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">🎯</div>
+              <h3>Clarté</h3>
+              <p>Nous décomposons les concepts complexes en explications digestes et faciles à comprendre sans sacrifier la précision.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🚀</div>
+              <h3>Innovation</h3>
+              <p>Nous restons à la pointe des développements en IA, vous apportant les dernières tendances et technologies révolutionnaires.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">🤝</div>
+              <h3>Communauté</h3>
+              <p>Nous favorisons un environnement d'apprentissage où les connaissances sont partagées, les questions bienvenues, et la croissance célébrée.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">⚡</div>
+              <h3>Praticité</h3>
+              <p>Nous nous concentrons sur les applications du monde réel et fournissons des insights exploitables que vous pouvez implémenter immédiatement.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="topics-section">
+          <h2>Ce que Nous Couvrons</h2>
+          <div class="topics-grid">
+            <div class="topic-item">
+              <h3>Fondamentaux de l'Apprentissage Automatique</h3>
+              <p>Des algorithmes de base aux techniques avancées, nous couvrons tout le spectre des concepts d'apprentissage automatique.</p>
+            </div>
+            <div class="topic-item">
+              <h3>Apprentissage Profond & Réseaux de Neurones</h3>
+              <p>Explorez le monde de l'apprentissage profond, des perceptrons simples aux architectures complexes comme les transformers.</p>
+            </div>
+            <div class="topic-item">
+              <h3>Traitement du Langage Naturel</h3>
+              <p>Comprenez comment les machines traitent et comprennent le langage humain, des bases aux modèles de pointe.</p>
+            </div>
+            <div class="topic-item">
+              <h3>Vision par Ordinateur</h3>
+              <p>Apprenez comment les systèmes d'IA voient et interprètent l'information visuelle, de la reconnaissance d'images à la détection d'objets.</p>
+            </div>
+            <div class="topic-item">
+              <h3>Éthique de l'IA & Société</h3>
+              <p>Discutons du développement et du déploiement responsables des systèmes d'IA et de leur impact sur la société.</p>
+            </div>
+            <div class="topic-item">
+              <h3>Applications Industrielles</h3>
+              <p>Études de cas réelles montrant comment l'IA transforme les industries de la santé à la finance.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-section">
+          <h2>Contactez-nous</h2>
+          <p>
+            Vous avez des questions, suggestions, ou souhaitez contribuer ? Nous serions ravis de vous entendre ! 
+            Rejoignez notre communauté et faites partie de la révolution IA.
+          </p>
+          <div class="contact-info">
+            <div class="contact-item">
+              <strong>Email :</strong> hello@aiblog.com
+            </div>
+            <div class="contact-item">
+              <strong>Suivez-nous :</strong> @aiblog sur les réseaux sociaux
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding: 2rem 0;
+  }
+
+  .about-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  .hero-visual {
+    flex-shrink: 0;
+  }
+
+  .about-icon {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-content section {
+    margin-bottom: 4rem;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-light);
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .value-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-card h3 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .value-card p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 0;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .topic-item {
+    padding: 1.5rem;
+    background: var(--color-bg-secondary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .topic-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .topic-item p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: var(--color-text-light);
+  }
+
+  .contact-section {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-bg-secondary) 100%);
+    border-radius: var(--radius-lg);
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .contact-item {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+  }
+
+  .contact-item strong {
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .about-hero {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .about-icon svg {
+      width: 120px;
+      height: 120px;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .topics-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-content section {
+      margin-bottom: 3rem;
+    }
+  }
+</style>

@@ -1,0 +1,49 @@
+---
+export interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, '');
+---
+
+<a href={href} class:list={['header-link', { active: isActive }]} aria-current={isActive ? 'page' : undefined}>
+  <slot />
+</a>
+
+<style>
+  .header-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-text-light);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    position: relative;
+  }
+
+  .header-link:hover {
+    color: var(--color-primary);
+    background: var(--color-primary-light);
+  }
+
+  .header-link.active {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .header-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+</style>

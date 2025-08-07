@@ -1,0 +1,380 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { useTranslations } from '@/utils/i18n';
+
+const t = useTranslations('fr');
+const posts = (await getCollection('blog'))
+  .filter(post => post.id.startsWith('fr/'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={t('home.title')}
+  description={t('meta.description')}
+>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="gradient-text">{t('home.title')}</span>
+        </h1>
+        <p class="hero-subtitle">
+          {t('home.subtitle')}
+        </p>
+        <div class="hero-cta">
+          <a href="/fr/blog/" class="cta-button primary">
+            Explorer les Articles
+          </a>
+          <a href="/fr/about/" class="cta-button secondary">
+            À propos
+          </a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="ai-icon">
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+            <defs>
+              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#10b981"/>
+              </linearGradient>
+            </defs>
+            <circle cx="100" cy="100" r="80" fill="url(#gradient)" opacity="0.1"/>
+            <circle cx="100" cy="100" r="60" fill="url(#gradient)" opacity="0.2"/>
+            <circle cx="100" cy="100" r="40" fill="url(#gradient)" opacity="0.3"/>
+            <path d="M70 80 Q100 60 130 80 Q130 120 100 140 Q70 120 70 80Z" fill="url(#gradient)"/>
+            <circle cx="85" cy="95" r="5" fill="white"/>
+            <circle cx="115" cy="95" r="5" fill="white"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="featured-posts">
+    <div class="container">
+      <h2 class="section-title">Derniers Articles</h2>
+      <div class="posts-grid">
+        {posts.map((post) => (
+          <article class="post-card">
+            <a href={`/fr/blog/${post.slug.replace('fr/', '')}/`} class="post-link">
+              {post.data.heroImage && (
+                <div class="post-image">
+                  <img 
+                    src={post.data.heroImage} 
+                    alt={post.data.title}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              )}
+              <div class="post-content">
+                <h3 class="post-title">{post.data.title}</h3>
+                <p class="post-description">{post.data.description}</p>
+                <div class="post-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('fr-FR', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                  {post.data.readingTime && (
+                    <span class="reading-time">
+                      {post.data.readingTime} {t('blog.readingTime')}
+                    </span>
+                  )}
+                </div>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="post-tags">
+                    {post.data.tags.slice(0, 2).map((tag) => (
+                      <span class="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+      <div class="view-all">
+        <a href="/fr/blog/" class="view-all-link">
+          Voir Tous les Articles →
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: 4rem 0 6rem;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, var(--color-primary-light) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, var(--color-secondary) 0%, transparent 50%);
+    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.375rem;
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+  }
+
+  .cta-button.primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .cta-button.primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cta-button.secondary {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+
+  .cta-button.secondary:hover {
+    background: var(--color-gray-50);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-icon {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  .featured-posts {
+    padding: 4rem 0;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: var(--color-text);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .post-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid var(--color-border);
+  }
+
+  .post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .post-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-image {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .post-card:hover .post-image img {
+    transform: scale(1.05);
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .post-title {
+    font-size: 1.375rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .post-description {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .view-all {
+    text-align: center;
+  }
+
+  .view-all-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: color 0.2s ease;
+  }
+
+  .view-all-link:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .container {
+      flex-direction: column;
+      text-align: center;
+      gap: 2rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .hero-cta {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .ai-icon svg {
+      width: 150px;
+      height: 150px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .featured-posts {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
