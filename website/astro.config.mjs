@@ -1,11 +1,17 @@
 // @ts-check
 
+import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
+  site: 'https://yourdomain.com',
+  integrations: [mdx(), sitemap()],
+  i18n: {
+    defaultLocale: "fr",
+    locales: ["en", "fr"],
+    routing: {
+      prefixDefaultLocale: true
+    }
+  }
 });
