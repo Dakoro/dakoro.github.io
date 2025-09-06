@@ -1,17 +1,11 @@
-// @ts-check
+import { defineConfig } from "astro/config"
+import mdx from "@astrojs/mdx"
+import sitemap from "@astrojs/sitemap"
+import tailwind from "@astrojs/tailwind"
+import solidJs from "@astrojs/solid-js"
 
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-
+// https://astro.build/config
 export default defineConfig({
-  site: 'https://yourdomain.com',
-  integrations: [mdx(), sitemap()],
-  i18n: {
-    defaultLocale: "fr",
-    locales: ["en", "fr"],
-    routing: {
-      prefixDefaultLocale: true
-    }
-  }
-});
+  site: "https://dakoro.github.io/",
+  integrations: [mdx(), sitemap(), solidJs(), tailwind({ applyBaseStyles: false })],
+})

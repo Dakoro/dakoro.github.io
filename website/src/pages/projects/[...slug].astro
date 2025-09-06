@@ -6,30 +6,30 @@ import BottomLayout from "@layouts/BottomLayout.astro"
 import ArticleTopLayout from "@layouts/ArticleTopLayout.astro"
 import ArticleBottomLayout from "@layouts/ArticleBottomLayout.astro"
 
-// Create the static blog pages
+// Create the static projects pages
 export async function getStaticPaths() {
-	const posts = await getCollection("blog")
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
+	const projects = await getCollection("projects")
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: project,
 	}))
 }
 
-// Get the requested post
-type Props = CollectionEntry<"blog">
-const post = Astro.props
-const { title, summary } = post.data
+// Get the requested project
+type Props = CollectionEntry<"projects">
+const project = Astro.props
+const { title, summary } = project.data
 ---
 
 <PageLayout title={title} description={summary}>
   <TopLayout>
     <div class="animate">
-      <ArticleTopLayout entry={post}/>
+      <ArticleTopLayout entry={project} />
     </div>
   </TopLayout>
   <BottomLayout>
     <div class="animate">
-      <ArticleBottomLayout entry={post} />
+      <ArticleBottomLayout entry={project} />
     </div>
   </BottomLayout>
 </PageLayout>

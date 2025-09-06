@@ -1,5 +1,75 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
 
-export const SITE_TITLE = 'Astro Blog';
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+import type { Site, Page, Links, Socials } from "@types"
+
+// Global
+export const SITE: Site = {
+  TITLE: "Dakoro Home",
+  DESCRIPTION: "Welcome to Astro Sphere, a portfolio and blog for designers and developers.",
+  AUTHOR: "Dakoro",
+}
+
+// Work Page
+export const WORK: Page = {
+  TITLE: "Work",
+  DESCRIPTION: "Places I have worked.",
+}
+
+// Blog Page
+export const BLOG: Page = {
+  TITLE: "Blog",
+  DESCRIPTION: "Writing on topics I am passionate about.",
+}
+
+// Projects Page 
+export const PROJECTS: Page = {
+  TITLE: "Projects",
+  DESCRIPTION: "Recent projects I have worked on.",
+}
+
+// Search Page
+export const SEARCH: Page = {
+  TITLE: "Search",
+  DESCRIPTION: "Search all posts and projects by keyword.",
+}
+
+// Links
+export const LINKS: Links = [
+  { 
+    TEXT: "Home", 
+    HREF: "/", 
+  },
+  { 
+    TEXT: "Work", 
+    HREF: "/work", 
+  },
+  { 
+    TEXT: "Blog", 
+    HREF: "/blog", 
+  },
+  { 
+    TEXT: "Projects", 
+    HREF: "/projects", 
+  },
+]
+
+// Socials
+export const SOCIALS: Socials = [
+  { 
+    NAME: "Email",
+    ICON: "email", 
+    TEXT: "david.korobetski@gmail.com",
+    HREF: "mailto:david.korobetski@gmail.com",
+  },
+  { 
+    NAME: "Github",
+    ICON: "github",
+    TEXT: "dakoro",
+    HREF: "https://github.com/Dakoro"
+  },
+  { 
+    NAME: "LinkedIn",
+    ICON: "linkedin",
+    TEXT: "Dakoro",
+    HREF: "https://www.linkedin.com/in/david-korobetski/",
+  },
+]
