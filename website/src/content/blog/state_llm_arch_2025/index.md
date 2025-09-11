@@ -1,7 +1,7 @@
 ---
 title: "Architectures Avancées des Grands Modèles de Langage en 2025 : Une Analyse Approfondie des Innovations et des Tendances"
 summary: "Résumer des avancées architecturales des llms en 2025"
-date: 08/11/2025
+date: 09/11/2025
 tags:
 - AI
 - llm
