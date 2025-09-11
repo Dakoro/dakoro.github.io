@@ -17,9 +17,9 @@ Le véritable progrès ne réside plus dans une rupture architecturale fondament
 
 Par exemple, une comparaison entre le Qwen3 et un modèle Llama 3 montre que le Qwen3 est presque deux fois plus lent en termes de jetons par seconde, mais consomme environ deux fois moins de mémoire. Ce type d'échange calcul-mémoire illustre la maturité de la discipline, où chaque choix de conception a un impact direct sur la praticité et l'efficacité opérationnelle du modèle.
 
-### 1.2. Objectif de la Conférence : Une analyse en profondeur
+### 1.2. Objectif de cet article : Une analyse en profondeur
 
-Cette conférence se propose de démystifier les innovations qui définissent les LLM de nouvelle génération. L'analyse ne se limitera pas aux caractéristiques de haut niveau, mais plongera au cœur des mécanismes, des méthodologies de post-entraînement et des avancées en matière de raisonnement. L'objectif est de fournir une compréhension technique et concrète des choix de conception et de leur impact sur le comportement et l'efficacité des modèles, en s'appuyant sur des pseudo-codes pour illustrer les concepts algorithmiques clés.
+Cet article se propose de démystifier les innovations qui définissent les LLM de nouvelle génération. L'analyse ne se limitera pas aux caractéristiques de haut niveau, mais plongera au cœur des mécanismes, des méthodologies de post-entraînement et des avancées en matière de raisonnement. L'objectif est de fournir une compréhension technique et concrète des choix de conception et de leur impact sur le comportement et l'efficacité des modèles, en s'appuyant sur des pseudo-codes pour illustrer les concepts algorithmiques clés.
 
 ## 2. Les Composants Fondamentaux et Leurs Évolutions
 
