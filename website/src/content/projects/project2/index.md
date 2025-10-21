@@ -1,6 +1,6 @@
 ---
-title: Projet Simplon
-summary: RAG application with an arxiv 
+title: Doc2struct
+summary: Transform unstructured text to structured data 
 repoURL: https://github.com/Dakoro/doc2struct
 date: 10/21/2025
 tags:
