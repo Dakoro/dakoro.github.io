@@ -2,7 +2,7 @@
 title: Projet Simplon
 summary: RAG application with an arxiv 
 repoURL: https://github.com/Dakoro/doc2struct
-date: 21/10/2025
+date: 10/21/2025
 tags:
 - NLP
 - Clustering
