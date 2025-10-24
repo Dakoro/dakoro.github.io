@@ -1,6 +1,6 @@
 ---
 title: Doc2struct
-summary: Transform unstructured text to structured data 
+summary: Transformer du texte non structuré en données structuréés
 repoURL: https://github.com/Dakoro/doc2struct
 date: 10/21/2025
 tags:
