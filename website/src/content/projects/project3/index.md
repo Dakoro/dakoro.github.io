@@ -13,7 +13,7 @@ tags:
 ## Système de Comptage de Véhicules en Temps Réel
 
 <video width="500" height="300" controls>
-  <source src="https://github.com/Dakoro/traffic-counter/blob/main/result.mp4" type="video/mp4">
+  <source src="https://drive.google.com/file/d/1reUv647BtclrbN46eQ7cgPjcc61ydpcv/view?usp=sharing" type="video/mp4">
 </video>
 
 
